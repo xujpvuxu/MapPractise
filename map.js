@@ -18,8 +18,9 @@ function initMap() {
     let self = this;
     navigator.geolocation.getCurrentPosition((position) => {
 
-        self.position.lng = position.longitude;
-        self.position.lat = position.latitude;
+        var uluru = { lat: 24.363, lng: 121.044 };
+        self.position.lng = position.coords.longitude;
+        self.position.lat = position.coords.latitude;
 
         debugger;
     var map = new google.maps.Map(document.getElementById('map'), {
