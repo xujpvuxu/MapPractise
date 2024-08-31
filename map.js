@@ -2,33 +2,33 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue!'
+        message: 'Hello Vue!',
+        position: {
+            lng: 0,
+            lat: 0
+        }
     },
     methods: {
-        located: located
     },
     mounted: function () {
         initMap.call(this);
-        this.located()
     }
 })
 function initMap() {
-    var uluru = { lat: 24.363, lng: 121.044 };
+    let self = this;
+    navigator.geolocation.getCurrentPosition((position) => {
+
+        self.position.lng = position.longitude;
+        self.position.lat = position.latitude;
+
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
-        center: uluru
+        center: self.position
     });
     var marker = new google.maps.Marker({
-        position: uluru,
+        position: self.position,
         map: map
     });
-}
-
-function located() {
-    debugger
-    navigator.geolocation.getCurrentPosition((position) => {
-         console.log(position.coords);
-        debugger
         console.log(position);
     })
 }
