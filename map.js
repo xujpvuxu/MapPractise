@@ -17,15 +17,16 @@ var app = new Vue({
 function initMap() {
     let self = this;
     navigator.geolocation.getCurrentPosition((position) => {
+        debugger
         self.position.lng = position.coords.longitude;
         self.position.lat = position.coords.latitude;
         createPoint.call(this, self.position)
     })
 
 
-//    self.position.lng = 121.4808064;
-//    self.position.lat = 25.0150912;
-//    createPoint.call(this, self.position)
+   // self.position.lng = 121.4808064;
+   // self.position.lat = 25.0150912;
+   // createPoint.call(this, self.position)
 }
 
 function createPoint(point) {
@@ -47,6 +48,13 @@ function createPoint(point) {
         icon: yellowIcon // 設定自訂圖標
     });
 
+                // 創建 InfoWindow 並設定內容為 "123"
+                var infoWindow = new google.maps.InfoWindow({
+                    content: '123'
+                });
+
+                // 在標記上顯示 InfoWindow
+                infoWindow.open(map, marker);
 
 
     // 口罩API
@@ -71,6 +79,7 @@ function createPoint(point) {
                 });
 
             }
+
         })
         .catch(error => {
             debugger
