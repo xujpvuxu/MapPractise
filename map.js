@@ -21,6 +21,7 @@ function initMap() {
         self.position.lng = position.longitude;
         self.position.lat = position.latitude;
 
+        debugger;
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: self.position
