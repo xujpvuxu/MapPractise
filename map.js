@@ -42,17 +42,15 @@ function createPoint(point) {
     };
 
     // 當前位置
-    var markerd = new google.maps.Marker({
-        position: point,
-        map: map,
-        icon: yellowIcon // 設定自訂圖標
-    });
-
-
+    //    var markerd = new google.maps.Marker({
+    //        position: point,
+    //        map: map,
+    //        icon: yellowIcon // 設定自訂圖標
+    //    });
     // 創建 InfoWindow 並設定內容為 "123"
-    var infoWindow = new google.maps.InfoWindow({
-        content: '<div>123</div><div>456</div>'
-    });
+    //    var infoWindow = new google.maps.InfoWindow({
+    //        content: '<div>123</div><div>456</div>'
+    //    });
 
     // 在標記上顯示 InfoWindow
     infoWindow.open(map, markerd);
@@ -83,10 +81,10 @@ function createPoint(point) {
 
                     // 創建 InfoWindow 並設定內容為 "123"
                     var infoWindow = new google.maps.InfoWindow({
-                      content: `<div style="font-size:9px"><div>藥局名稱:${response.data.features[i].properties.name}</div>
+                        content: `<div style="font-size:9px"><div>藥局名稱:${response.data.features[i].properties.name}</div>
                       <div>成人口罩剩餘:${response.data.features[i].properties.mask_adult}個</div>
                       <div>孩子口罩剩餘:${response.data.features[i].properties.mask_child}個</div></div>`
-                                        });
+                    });
 
                     // 在標記上顯示 InfoWindow
                     infoWindow.open(map, marker);
