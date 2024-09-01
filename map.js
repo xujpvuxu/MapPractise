@@ -42,18 +42,18 @@ function createPoint(point) {
     };
 
     // 當前位置
-    //    var markerd = new google.maps.Marker({
-    //        position: point,
-    //        map: map,
-    //        icon: yellowIcon // 設定自訂圖標
-    //    });
+    var markerd = new google.maps.Marker({
+        position: point,
+        map: map,
+        icon: yellowIcon // 設定自訂圖標
+    });
     // 創建 InfoWindow 並設定內容為 "123"
     //    var infoWindow = new google.maps.InfoWindow({
     //        content: '<div>123</div><div>456</div>'
     //    });
 
     // 在標記上顯示 InfoWindow
-    infoWindow.open(map, markerd);
+    //infoWindow.open(map, markerd);
 
     // 口罩API
     axios.get('https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json', {
